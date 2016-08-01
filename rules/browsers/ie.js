@@ -41,7 +41,8 @@ module.exports = function(res, next) {
 		}, null);
 	}
 
-	if ( ieVersion && !vendorNames.length ) {
+	// if ( ieVersion && !vendorNames.length ) {
+	if ( ieVersion ) {
 		_.set(res, 'detected.client', {
 			name: 'Internet Explorer',
 			version: ieVersion || 'Unknown'

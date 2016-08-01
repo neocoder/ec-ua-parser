@@ -10,6 +10,7 @@ module.exports = function(res, next) {
 				name: 'Evolution',
 				version: token.version.full
 			});
+			_.set(res, 'detected.device.platform', 'desktop');
 		}
 	}
 	next(null, res);

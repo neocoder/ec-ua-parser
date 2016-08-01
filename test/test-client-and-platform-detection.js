@@ -42,6 +42,13 @@ var uaTests = [
 		ua: 'Mozilla/5.0 (compatible; MSIE 10.6; Windows NT 6.1; Trident/5.0; InfoPath.2; SLCC1; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729; .NET CLR 2.0.50727) 3gpp-gba UNTRUSTED/1.0',
 		clientName: 'Internet Explorer',
 		clientVersion: '9'
+	},
+	{
+		ua: 'CamelHttpStream/1.0 Evolution/2.30.3',
+		clientName: 'Evolution'
+	},
+	{
+		ua: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 	}
 ];
 
@@ -58,9 +65,12 @@ describe('Testing OS detection', function(done){
 		async.eachSeries(
 			uaTests,
 			function(uaTest, nextTest){
+				debug('User-Agent', uaTest.ua);
 				uap.parse(uaTest.ua, function(err, res){
 					if ( err ) { return nextTest(err); }
-					console.log(require('util').inspect(res.detected, { depth: null, colors: true }));
+					console.log(require('util').inspect(res, { depth: null, colors: true }));
+					console.log();
+					expect(_.get(res, 'detected.device.platform')).to.exist;
 					expect(_.get(res, 'detected.client.name')).to.be.equal(uaTest.clientName);
 					if ( uaTest.clientVersion ) {
 						expect(_.get(res, 'detected.client.version')).to.be.equal(uaTest.clientVersion);

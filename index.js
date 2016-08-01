@@ -16,7 +16,11 @@ class UAParser {
 
 	parse(uaString, done) {
 		debug('UAParser.conn: ', this.conn);
-		detect({ uaString, conn: this.conn }, done);
+		detect({ uaString, conn: this.conn }, function(err, res){
+			if ( err ) { return done(err); }
+			delete res.conn;
+			return done(null, res);
+		});
 	}
 
 	close(){
