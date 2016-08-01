@@ -28,15 +28,11 @@ rulesFuncs.push(require('./email-clients'));
 module.exports = async.seq(
 	preParser,
 	uaParse,
-	function(pua, next){
+	function(params, next){
 		// Rule functions expect result object to be passesed as first argument
 		// preparing it here
-		next(null, {
-			pua,
-			detected: {
-				// this will be the object with detection result
-			}
-		});
+		params.detected = {};// this will be the object with detection result
+		next(null, params);
 	},
 	async.seq.apply(async, rulesFuncs)
 );

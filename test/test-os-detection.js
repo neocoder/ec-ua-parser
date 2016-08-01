@@ -93,6 +93,7 @@ describe('Testing OS detection', function(done){
 				uap.parse(uaTest.ua, function(err, res){
 					if ( err ) { return nextTest(err); }
 					console.log(res.detected);
+					
 					expect(_.get(res, 'detected.os.name')).to.be.equal(uaTest.osName);
 					expect(_.get(res, 'detected.os.version')).to.be.equal(uaTest.osVersion);
 					nextTest();

@@ -1,6 +1,5 @@
 var async = require('async');
 var _ = require('lodash');
-var mongoose = require('mongoose');
 var debug = require('debug')('ua-parser:os');
 
 var VENDORS = require('../../vendors.json');
@@ -8,8 +7,6 @@ var VENDORS = require('../../vendors.json');
 VENDORS = VENDORS.sort(function(a, b){
 	return b.length - a.length;
 });
-
-var Spec = mongoose.model('Spec');
 
 // Windows Phone
 function findSpecByDeviceName(params, next) {
@@ -23,6 +20,7 @@ function findSpecByDeviceName(params, next) {
 	};
 
 
+	var Spec = params.conn.model('Spec');
 
 	Spec.findOne(q, function(err, doc){
 		if ( err ) { return next(err); }
@@ -39,7 +37,7 @@ function findSpecByAltDeviceName(params, next) {
 		names: new RegExp(params.altDeviceName, 'i')
 	};
 
-
+	var Spec = params.conn.model('Spec');
 
 	Spec.findOne(altQ, function(err, doc){
 		if ( err ) { return next(err); }

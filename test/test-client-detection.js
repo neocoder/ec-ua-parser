@@ -60,6 +60,7 @@ describe('Testing OS detection', function(done){
 			function(uaTest, nextTest){
 				uap.parse(uaTest.ua, function(err, res){
 					if ( err ) { return nextTest(err); }
+					console.log(require('util').inspect(res.detected, { depth: null, colors: true }));
 					expect(_.get(res, 'detected.client.name')).to.be.equal(uaTest.clientName);
 					if ( uaTest.clientVersion ) {
 						expect(_.get(res, 'detected.client.version')).to.be.equal(uaTest.clientVersion);
