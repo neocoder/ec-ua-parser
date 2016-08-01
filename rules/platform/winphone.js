@@ -112,6 +112,7 @@ module.exports = function (res, next) {
 	//
 
 	findSpec({
+		conn: res.conn,
 		vendor,
 		deviceName,
 		altDeviceName
