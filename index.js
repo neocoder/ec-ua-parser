@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-
+var debug = require('debug');
 require('./lib/models/spec')(mongoose);
 
 var defaultOptions = {
@@ -15,6 +15,7 @@ class UAParser {
 	}
 
 	parse(uaString, done) {
+		debug('UAParser.conn: ', this.conn);
 		detect({ uaString, conn: this.conn }, done);
 	}
 
