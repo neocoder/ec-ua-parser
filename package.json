@@ -1,0 +1,36 @@
+{
+  "name": "ec-ua-parser",
+  "version": "0.0.3",
+  "description": "Email client user-agent parser and Email Client detection",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "email",
+    "client",
+    "detection",
+    "email",
+    "client",
+    "user-agent",
+    "parser"
+  ],
+  "author": "Alex Ladyga ( neocoder@gmail.com )",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^2.2.0",
+    "jquery": "^3.0.0",
+    "jsdom": "^9.2.1",
+    "lodash": "^4.13.1",
+    "macos-release": "^1.0.0",
+    "mongoose": "^4.5.1",
+    "require-dir": "^0.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "colors": "^1.1.2",
+    "minimist": "^1.2.0",
+    "mongojs": "^2.4.0",
+    "optimist": "^0.6.1"
+  }
+}
