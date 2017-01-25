@@ -8,6 +8,8 @@ var defaultOptions = {
 
 var detect = require('./rules');
 
+mongoose.Promise = global.Promise;
+
 class UAParser {
 	constructor(opts = defaultOptions) {
 		this.opts = opts;

@@ -49,6 +49,9 @@ var uaTests = [
 	},
 	{
 		ua: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
+	},
+	{
+		ua: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows 98; Maxthon; SearchToolbar 1.2;  Embedded Web Browser from: http://bsalsa.com/; .NET CLR 2.0.50727; Alexa Toolbar)'
 	}
 ];
 
